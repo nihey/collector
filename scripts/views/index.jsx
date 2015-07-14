@@ -1,12 +1,44 @@
-var React = require('react');
+var React = require('react'),
+    Utils = require('scripts/utils')
+    ReactFire = require('reactfire');
 
 var Index = React.createClass({
-  render: function() {
-    return <div>
-      <div className="text-center text-empty-notice">
+  mixins: [ReactFire],
+
+
+  getPresets: function() {
+    if (!this.state.presets) {
+      return <div className="text-center text-empty-notice">
+        loading presets...
+      </div>
+    }
+    if (!Object.keys(this.state.presets).length) {
+      return <div className="text-center text-empty-notice">
         no presets registered
       </div>
-      <form className="new-preset top-line">
+    }
+    return <form className="form-sm new-preset">
+      {Object.keys(this.state.presets).map((key) => {
+        var preset = this.state.presets[key];
+        return <a href={"#!/presets|" + key}><button type="button">
+          {preset.name}
+        </button></a>;
+      })}
+    </form>;
+  },
+
+  componentDidMount: function() {
+    this.bindAsObject(Utils.firebase.child('presets'), 'presets');
+  },
+
+  getInitialState: function() {
+    return {};
+  },
+
+  render: function() {
+    return <div>
+      {this.getPresets()}
+      <form className="form-sm new-preset top-line">
         <a href="#!/new-preset"><button type="button">
           new
         </button></a>

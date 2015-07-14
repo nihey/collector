@@ -3,7 +3,7 @@ var React = require('react');
 var App = React.createClass({
 
   changeView: function() {
-    var file = location.hash.substr(3) || 'index';
+    var file = location.hash.substr(3).split('|')[0] || 'index';
     this.setState({element: require('scripts/views/' + file + '.jsx')});
   },
 
