@@ -2,13 +2,18 @@ var React = require('react');
 
 var App = React.createClass({
 
+  changeView: function() {
+    var file = location.hash.substr(3) || 'index';
+    this.setState({element: require('scripts/views/' + file + '.jsx')});
+  },
+
   /*
    * React Hooks
    */
 
   componentDidMount: function() {
-    var file = location.hash.substr(3) || 'index';
-    this.setState({element: require('scripts/views/' + file + '.jsx')});
+    this.changeView();
+    window.onhashchange = this.changeView;
   },
 
   getInitialState: function() {
