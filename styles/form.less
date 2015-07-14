@@ -1,0 +1,42 @@
+form {
+  max-width: 200px;
+}
+
+form * {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.2em;
+}
+
+form *:last-child {
+  margin-bottom: 0.2em;
+}
+
+input {
+  border: 0.2em solid #bbb;
+  border-radius: 0.2em;
+  padding: 1em;
+  font-size: 1em;
+  transition: 0.3s border ease-out;
+}
+
+input:active, input:focus {
+  border: 0.2em solid #eee;
+  outline: 0;
+}
+
+button {
+  font-size: 1em;
+  padding: 1em;
+  border: 0;
+  border-radius: 0.1em;
+  transition: 0.4s background ease-out;
+  color: #eff;
+  background: #129994;
+  font-weight: bold;
+}
+
+button:hover, button:focus {
+  background: #0EB4DB;
+}
