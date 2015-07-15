@@ -18,9 +18,9 @@ var Index = React.createClass({
       </div>
     }
     return <form className="form-sm new-preset">
-      {Object.keys(this.state.presets).map((key) => {
+      {Object.keys(this.state.presets).map((key, index) => {
         var preset = this.state.presets[key];
-        return <a href={"#!/presets|" + key}><button type="button">
+        return <a key={index} href={"#!/presets|" + key}><button type="button">
           {preset.name}
         </button></a>;
       })}
