@@ -7,12 +7,12 @@ var Index = React.createClass({
 
 
   getPresets: function() {
-    if (!this.state.presets) {
+    if (this.state.presets === undefined) {
       return <div className="text-center text-empty-notice">
         loading presets...
       </div>
     }
-    if (!Object.keys(this.state.presets).length) {
+    if (this.state.presets === null || !Object.keys(this.state.presets).length) {
       return <div className="text-center text-empty-notice">
         no presets registered
       </div>

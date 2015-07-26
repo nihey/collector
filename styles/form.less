@@ -22,7 +22,7 @@ form *:last-child {
 }
 
 input {
-  border: 0.2em solid #bbb;
+  border: 0.2em solid @dark-gray;
   border-radius: 0.2em;
   padding: 1em;
   font-size: 1em;
@@ -30,7 +30,7 @@ input {
 }
 
 input:active, input:focus {
-  border: 0.2em solid #eee;
+  border: 0.2em solid @light-gray;
   outline: 0;
 }
 
@@ -40,13 +40,17 @@ button {
   border: 0;
   border-radius: 0.1em;
   transition: 0.4s background ease-out;
-  color: #eff;
-  background: #129994;
+  color: @dark-black;
+  background: @dark-gray;
   font-weight: bold;
 }
 
+button:not(.red):not(.green):not(.yellow) {
+  min-width: 200px;
+}
+
 button:hover, button:active {
-  background: #0EB4DB;
+  background: @light-gray;
 }
 
 .separator {
@@ -75,25 +79,25 @@ form.collector button {
 }
 
 .red {
-  background: #B30707;
+  background: @dark-red;
 }
 
 .red:hover {
-  background: #F90808;
+  background: @light-red;
 }
 
 .green {
-  background: #048E04;
+  background: @dark-green;
 }
 
 .green:hover {
-  background: #23E723;
+  background: @light-green;
 }
 
 .yellow {
-  background: #CCD214;
+  background: @dark-yellow;
 }
 
 .yellow:hover {
-  background: #F3FA09;
+  background: @light-yellow;
 }

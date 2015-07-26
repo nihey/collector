@@ -1,5 +1,21 @@
+@import "./variables.less";
 @import "./text.less";
 @import "./form.less";
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+* {
+  background: @dark-black;
+  color: @light-gray;
+  animation: 1s fade-in;
+}
 
 html, body, #react-body, #react-body > div {
   display: flex;
